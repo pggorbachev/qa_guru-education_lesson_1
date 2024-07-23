@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from users_data.users import users_data
@@ -15,3 +16,7 @@ async def get_user(user_id: int):
         }})
     else:
         return JSONResponse(status_code=404, content={"error": "User not found"})
+
+
+if __name__ == "__main__":
+    uvicorn.run(app)
